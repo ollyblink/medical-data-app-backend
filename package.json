@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "\"nodemon ./server/main.js\"",
+    "start": "concurrently \"npm run tsc:w\" \"nodemon ./server/main.js\"",
     "tsc:w": "tsc && concurrently \"tsc -w\" **/*.ts",
     "tsc": "tsc **/*.ts",
 
