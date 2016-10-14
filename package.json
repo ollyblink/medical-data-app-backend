@@ -3,17 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "scripts": {
-<<<<<<< HEAD
+  "scripts": { 
     "start": "concurrently \"npm run tsc:w\" \"nodemon ./server/main.js\" ",
     "tsc:w": "tsc -w",
     "tsc": "tsc",
-=======
-    "start": "concurrently \"npm run tsc:w\" \"nodemon ./server/main.js\"",
-    "tsc:w": "tsc && concurrently \"tsc -w\" **/*.ts",
-    "tsc": "tsc **/*.ts",
-
->>>>>>> be11432c5d09e05aabb2b14e8d50e95995b81c04
     "test": "mocha --require ts-node/register --ui bdd --reporter spec --recursive server/test"
   },
   "keywords": [
