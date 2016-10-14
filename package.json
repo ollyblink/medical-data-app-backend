@@ -2,9 +2,9 @@
   "name": "MEANstack",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "nodemon ./server/main",
+    "start": "\"nodemon ./server/main.js\"",
     "tsc:w": "tsc && concurrently \"tsc -w\" **/*.ts",
     "tsc": "tsc **/*.ts",
 
