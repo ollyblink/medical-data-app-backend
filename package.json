@@ -1,0 +1,49 @@
+{
+  "name": "MEANstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server/main",
+    "tsc:w": "tsc && concurrently \"tsc -w\" **/*.ts",
+    "tsc": "tsc **/*.ts",
+
+    "test": "mocha --require ts-node/register --ui bdd --reporter spec --recursive server/test"
+  },
+  "keywords": [
+    "mongodb",
+    "expressjs",
+    "node.js",
+    "typescript"
+  ],
+  "author": "Oliver Zihler",
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "mocha": "^3.1.2",
+    "mongoose": "4.6.2",
+    "node-forge": "^0.6.42",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
+    "reflect-metadata": "^0.1.8",
+    "supertest-session": "^2.0.1",
+    "systemjs": "0.19.39",
+    "typescript": "^2.0.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "concurrently": "^3.0.0",
+    "mocha": "^3.1.2",
+    "nodemon": "1.10.2",
+    "should": "^11.1.1",
+    "ts-node": "^1.4.3",
+    "typescript": "^2.0.3",
+    "typescript-require": "^0.2.9-1",
+    "typings": "^1.4.0"
+  }
+}

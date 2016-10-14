@@ -1,0 +1,6 @@
+server/**/*.js
+server/**/*.js.map
+node_modules/
+typings/
+*.log
+.idea/
