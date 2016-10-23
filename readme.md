@@ -25,7 +25,7 @@ For development purposes, you need to install MongoDB locally and run it. An ins
 To run the application, several commands need to be executed, each in its own terminal.
 
 1. `mongod`: the first terminal runs the mongo server. To be able to run the server with this command and not the complete path, the PATH variable needs to be set. The installation guide can be found <a href="https://docs.mongodb.com/v3.2/mongo/#start-the-mongo-shell" target="_blank">here</a>. 
-2. `npm start`: The second terminal runs the server, which is <a href="http://nodemon.io/" target="_blank">nodemon </a> in this case. Nodemon will watch for file changes and then automatically restart the server. The server runs at https://localhost:8080.
+2. `npm start`: The second terminal runs the server, which is <a href="http://nodemon.io/" target="_blank">nodemon </a> in this case. Nodemon will watch for file changes and then automatically restart the server. The server runs at https://localhost:8080. The typing warnings displayed do not affect the functioning of the server although they need to be addressed, see known issues below.
 
 	Beware that the server uses *https* for encrypted communication between browser and website. Because the certificate is untrusted initially, it needs to be proceeded unsafe for the server to work. Open a browser and manually proceed to localhost. In Chrome, this is accomplished as follows:
 	- go to https://localhost:8080
@@ -97,3 +97,4 @@ The backend provides three functionalities:
 - The app crashes when an unregistered user tries to log in. Requires proper handling in both back- and frontend.
 - Currently, data items can be stored multiple times. There should be checks to avoid storing data items with the same title etc. if required. Also, delete requires the item title. Instead, the id should be used. 
 - When GET https://localhost:8080/consents is invoked, the user for whom the consents are searched is not provided by the URL but instead, it is only checked within the system if the user is logged in. For proper REST notation, the user should be provided in the URL. 
+- Overall, more tests, checks, and recovery strategies need to be installed to avoid e.g. problems, where a user is registered twice and MongoDB simply throws an exception.
