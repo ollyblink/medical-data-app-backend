@@ -1,9 +1,4 @@
-//Example for Public/Private Key taken from
-//https://github.com/rzcoder/node-rsa
-//https://www.npmjs.com/package/keypair for RSA key pairs
 
-//dont forget npm install nodeforge!
-//only use import crypt from 'crypto' if crypto had a default export.
 import * as crypto from "crypto";
 import * as nodeforge from "node-forge";
 import {IKeyPair} from "../../app-typings/app-typings";

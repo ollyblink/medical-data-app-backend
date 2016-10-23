@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "scripts": { 
+  "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"nodemon ./server/main.js\" ",
     "tsc:w": "tsc -w",
     "tsc": "tsc",
