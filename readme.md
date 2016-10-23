@@ -42,11 +42,14 @@ The backend provides three functionalities:
 
 1. **Creating new users and login for these users**
 	
-	Two paths are provided:
+	Three paths are provided:
 	1. `POST https://localhost:8080/register`
 		- Registers a new user. Requires `username` and `password` fields (x-www-form-urlencoded in postman)
 	2. `POST https://localhost:8080/` 
 		- Login of an existing user. requires `username` and `password` fields (x-www-form-urlencoded in postman)
+
+	3. `GET https://localhost:8080/logout`
+		- logs out any registered user.
 
 2. **Creation, Reading and Deletion of data items that are stored encrypted on the server** 
 
@@ -78,7 +81,7 @@ The backend provides three functionalities:
 		- The first one retrieves all user names of users that can access the requesting user's data. The second one retrieves all user names of those user's that allowed the requesting user access to their data.
 
 	4. `DELETE https://localhost:8080/consents/sender/:sender/receiver/:receiver`
-		- deletes a consent between two users (`:sender` and `:receiver`) if the sender is also the logged in user. 
+		- deletes a consent between two users (`:sender` and `:receiver`) if the sender is also the logged in user. Only a user that granted consent to another user can also remove that consent again. 
 
 ## Known issues
 - For some reason, not all typings work for the `express` interfaces all of a sudden. This needs to be addressed asap. The application still runs, however.
