@@ -12,6 +12,7 @@ The purpose of this application is to allow a user to register and login to stor
 2. Sharing data items is accomplished by creating a consent between two users. Such a consent stores the authorising user, the authorised user, and the symmetric encryption key of the authorising user, encrypted using the asymmetric public key of the authorised user. This way, only the authorised user can decrypt the data of the authorising user by asymmetrically decrypting the symmetric encryption key with the own private key. The private key is stored symmetrically encrypted using a user's password and is decrypted on log in and stored within a session together with the symmetric encryption key. 
 
 ## Installation  Guide
+Make sure <a href="https://git-scm.com/downloads">git</a> and <a href="https://nodejs.org/en/">npm</a> (comes with Node.js) are installed.
 
 1. `git clone https://github.com/ollyblink/medical-data-app-backend.git`
 2. `cd medical-data-app-backend`
