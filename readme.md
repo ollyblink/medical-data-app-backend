@@ -69,7 +69,7 @@ The backend provides three functionalities:
 	
 	On registration, a public/private RSA key pair provided by the <a href="https://www.npmjs.com/package/node-forge" target="_blank">Node-Forge</a> library (its generation may require some seconds). The public key is stored unencrypted for each user. The private key is stored symmetrically encrypted using the user's password, and the encryption key is stored assymmetrically encrypted using the user's public key. 
 
-	The following paths exist:
+	The following paths exist (require login beforehand to be accessible, see login before):
 
 	1. `POST https://localhost:8080/consents/`
 		- requires a `receiver` field (x-www-form-urlencoded in postman). The receiver is the user that will be allowed to access this users (the sender's) data. To do so, the encryption key of the sender is asymmetrically encrypted using the receiver's public key. Only the receiver can then decrypt the sender's encryption key using the corresponding private key.
