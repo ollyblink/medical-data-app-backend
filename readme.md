@@ -86,8 +86,25 @@ The backend provides three functionalities:
 		- deletes a consent between two users (`:sender` and `:receiver`) if the sender is also the logged in user. Only a user that granted consent to another user can also remove that consent again. 
 
 ## Known issues
+- When npm start is called, it first fails (saying main.js could not be found although it exists at the specified location) but then compiles anyways and runs fine. The error is this:
+
+		module.js:471
+		[1] throw err;
+		[1] ^
+		[1]
+		[1] Error: Cannot find module 'C:\Users\olzi\Downloads\tests\medical-data-app-backend\server\main.js'
+		[1] at Function.Module._resolveFilename (module.js:469:15)
+		[1] at Function.Module._load (module.js:417:25)
+		[1] at Module.runMain (module.js:604:10)
+		[1] at run (bootstrap_node.js:394:7)
+		[1] at startup (bootstrap_node.js:149:9)
+		[1] at bootstrap_node.js:509:3
+		[1] [nodemon] app crashed - waiting for file changes before starting...
+		[0]
+
+
 - For some reason, not all typings work for the `express` interfaces all of a sudden. This needs to be addressed asap. The application still runs, however.
-- There is a typing issue with the official (downloaded from <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/passport-local-mongoose/passport-local-mongoose.d.ts" target="_blank">definitely typed</a>) `PassportLocalModel` interface: The `register` function requires a `PassportLocalModel` for its user, although it should be (as far as I can tell) a `PassportLocalDocument`. If it is changed to `PassportLocalDocument` manually, the error in the `index.route.ts` file will disappear for the `register` method. 
+- - There is a typing issue with the official (downloaded from <a href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/passport-local-mongoose/passport-local-mongoose.d.ts" target="_blank">definitely typed</a>) `PassportLocalModel` interface: The `register` function requires a `PassportLocalModel` for its user, although it should be (as far as I can tell) a `PassportLocalDocument`. If it is changed to `PassportLocalDocument` manually, the error in the `index.route.ts` file will disappear for the `register` method. 
 - The tests are slow because for each individual test, a login needs to be created, requiring public/private key generation. A better idea would be to predefine them once in an init script for all tests and reuse them.
 - There is a dependency that causes the `data.route.test` tests to break with `npm test`. When they are ran individually, however, the tests succeed. Currently, these test are `xit`'ed to avoid the test to break.
 
