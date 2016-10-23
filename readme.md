@@ -1,7 +1,7 @@
 # medical-data-app-backend
 
 ##Introduction and Technology Stack
-This is the backend part of the medical data app which runs on <a href="https://nodejs.org/en/" target="_blank">Node.js</a> (v. 6.8) and uses <a href="https://www.mongodb.com/download-center?jmp=nav#community">MongoDB</a> (v. 3.2) together with the <a href="http://mongoosejs.com/" target="_blank">Mongoose</a> (v. 4.6) framework for database access, <a href="http://expressjs.com/" target="_blank">ExpressJS</a> to expose resources as RESTful Webservice, and <a href="http://passportjs.org/" target="_blank">PassportJS</a> for authentication. Tests make use of the <a href="https://mochajs.org/" target="_blank">Mocha</a> framework. The current version uses sessions and Passport Local Strategy as authentication method, which could be adapted according to a user's needs.
+This is the backend part of the medical data app which runs on <a href="https://nodejs.org/en/" target="_blank">Node.js</a> (v. 6.8) and uses <a href="https://www.mongodb.com/download-center?jmp=nav#community">MongoDB</a> (v. 3.2) together with the <a href="http://mongoosejs.com/" target="_blank">Mongoose</a> (v. 4.6) framework for database access, <a href="http://expressjs.com/" target="_blank">ExpressJS</a> to expose resources as RESTful Webservice, and <a href="http://passportjs.org/" target="_blank">PassportJS</a> for authentication. Tests make use of the <a href="https://mochajs.org/" target="_blank">Mocha</a> framework. The current version uses sessions and Passport Local Strategy as authentication method, which could be adapted according to a user's needs. Furthermore, it is now employing  <a href="https://www.typescriptlang.org/">Typescript</a>.
 
 An optional Angular2 frontend that reuses the provided functionality can be found at <a href="https://github.com/ollyblink/medical-data-app-frontend" target="_blank">https://github.com/ollyblink/medical-data-app-frontend</a>.
 
@@ -25,7 +25,7 @@ For development purposes, you need to install MongoDB locally and run it. An ins
 To run the application, several commands need to be executed, each in its own terminal.
 
 1. `mongod`: the first terminal runs the mongo server. To be able to run the server with this command and not the complete path, the PATH variable needs to be set. The installation guide can be found <a href="https://docs.mongodb.com/v3.2/mongo/#start-the-mongo-shell" target="_blank">here</a>. 
-2. `npm start`: The second terminal runs the server, which is <a href="http://nodemon.io/" target="_blank">nodemon </a> in this case. Nodemon will watch for file changes and then automatically restart the server. The server runs at https://localhost:8080. The typing warnings displayed do not affect the functioning of the server although they need to be addressed, see known issues below.
+2. `npm start`: The second terminal runs the server, which is <a href="http://nodemon.io/" target="_blank">nodemon </a> in this case. Nodemon will watch for file changes and then automatically restart the server. The server runs at https://localhost:8080. The typing warnings displayed do not affect the functioning of the server although they need to be addressed, see known issues below. The app's configuration can be found in server/main.ts. Here, also the frontend URLs can be defined that can have access to the server (which is required for the Angular2 Frontend mentionend in the introduction that runs on http://localhost:3000).
 
 	Beware that the server uses *https* for encrypted communication between browser and website. Because the certificate is untrusted initially, it needs to be proceeded unsafe for the server to work. Open a browser and manually proceed to localhost. In Chrome, this is accomplished as follows:
 	- go to https://localhost:8080
@@ -36,6 +36,7 @@ To run the application, several commands need to be executed, each in its own te
 
 3. `npm test`: runs the test suite. All tests for all routes can be found in the `test` package. An issue is that not all tests work (currently, these are `xit`'ed). They work when ran alone but not when they are run with `npm test`. The issue is listed below.
 
+## App Structure
 
 ## Functionality and Paths
 The backend provides three functionalities:
